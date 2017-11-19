@@ -1,0 +1,11 @@
+{arch}
+.*
+!.gitignore
+,*
++*
+*.ipr
+*.iws
+*.iml
+.idea
+schema.sql
+target
