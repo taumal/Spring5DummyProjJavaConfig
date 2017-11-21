@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{title.application}">Thymeleaf</title>
+</head>
+<body>
+<p th:each="sb : ${home}">
+    <span th:text="${{sb.greetings}}">Hello</span>
+</p>
+</body>
+</html>
