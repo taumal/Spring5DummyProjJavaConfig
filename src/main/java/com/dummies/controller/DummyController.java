@@ -14,6 +14,7 @@ import org.thymeleaf.spring5.view.ThymeleafView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,12 +48,11 @@ public class DummyController {
     }
 
     @RequestMapping(value = "/addDummyData", method = RequestMethod.POST)
-    public String submit(@ModelAttribute(value = "dummy") Dummy dummy, BindingResult result, HttpServletRequest request,
-                         ModelMap model){
+    public String submit(@ModelAttribute(value = "dummy") final Dummy dummy, final BindingResult result, final ModelMap model){
 
         if (!result.hasErrors()){
             dummyDAO.saveOrUpdate(dummy);
-            return "redirect: addDummyData?id="+dummy.getId();
+//            return "redirect: addDummyData";
         }
 
         model.put("dummy", dummy);
@@ -76,5 +76,15 @@ public class DummyController {
         return "redirect:/dummy/dummyData";
     }
 
+    @ModelAttribute("countries")
+    public List<String> populateSuppliers() {
+        List<String> countries = new ArrayList();
+        countries.add("Afganistan");
+        countries.add("Bangladesh");
+        countries.add("India");
+        countries.add("UK");
+        countries.add("USA");
+        return countries;
+    }
 
 }
