@@ -11,7 +11,7 @@ public class Home {
     }
 
     private String greetings;
-    private Date today;
+    private String today;
 
     public String getGreetings() {
         return greetings;
@@ -21,11 +21,11 @@ public class Home {
         this.greetings = greetings;
     }
 
-    public Date getToday() {
+    public String getToday() {
         return today;
     }
 
-    public void setToday(Date today) {
+    public void setToday(String today) {
         this.today = today;
     }
 }

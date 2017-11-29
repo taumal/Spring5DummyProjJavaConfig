@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    ...
+</head>
+<body>
+<!-- footer content -->
+<footer th:fragment="footer">
+    <div class="pull-right">
+        &copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Belongs to Humanity
+    </div>
+    <div class="clearfix"></div>
+    <!-- jQuery -->
+    <script src="../../../resources/js/jquery/jquery.min.js" th:src="@{/resources/js/jquery/jquery.min.js}"></script>
+    <!-- Bootstrap -->
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <!-- FastClick -->
+    <script src="../../../resources/js/fastclick.js" th:src="@{/resources/js/fastclick.js}"></script>
+    <!-- NProgress -->
+    <script src="../../../resources/js/nprogress.js" th:src="@{/resources/js/nprogress.js}"></script>
+    <!-- Chart.js -->
+    <script src="../../../resources/js/chart.min.js" th:src="@{/resources/js/chart.min.js}"></script>
+    <!-- jQuery Sparklines -->
+    <script src="../../../resources/js/jquery.sparkline.min.js" th:src="@{/resources/js/jquery.sparkline.min.js}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../../../resources/js/moment.min.js" th:src="@{/resources/js/moment.min.js}"></script>
+    <script src="../../../resources/js/daterangepicker.js" th:src="@{/resources/js/daterangepicker.js}"></script>
+    <!-- jQuery custom content scroller -->
+    <script src="../../../resources/js/jquery.mCustomScrollbar.concat.min.js" th:src="@{/resources/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+    <!-- Datatables -->
+    <script src="../../../resources/js/dataTable/jquery.dataTables.min.js" th:src="@{/resources/js/dataTable/jquery.dataTables.min.js}"></script>
+    <script src="../../../resources/js/dataTable/dataTables.bootstrap.min.js" th:src="@{/resources/js/dataTable/dataTables.bootstrap.min.js}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../../../resources/js/template.min.js" th:src="@{/resources/js/template.min.js}"></script>
+</footer>
+<!-- /footer content -->
+</body>
+</html>

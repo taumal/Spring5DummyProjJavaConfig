@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dummy Data</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"  href="../resources/css/bootstrap.min.css" type="text/css" th:href="@{/resources/css/bootstrap.min.css}" />
+    <!-- Font Awesome -->
+    <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" th:href="@{/resources/css/font-awesome.min.css}" />
+    <!-- NProgress -->
+    <link href="../resources/css/nprogress.css" rel="stylesheet" type="text/css" th:href="@{/resources/css/nprogress.css}">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../resources/css/daterangepicker.css" rel="stylesheet" type="text/css" th:href="@{/resources/css/daterangepicker.css}">
+    <!-- jQuery custom content scroller -->
+    <link href="css/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" th:href="@{/resources/css/jquery.mCustomScrollbar.min.css}"/>
+
+    <!-- Custom Theme Style -->
+    <link href="../resources/css/template.min.css" rel="stylesheet" type="text/css" th:href="@{/resources/css/template.min.css}">
+</head>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- sidebar menu -->
+        <div th:replace="layouts/menu-bar :: side-bar"></div>
+        <!-- /sidebar menu -->
+
+        <!-- top navigation -->
+        <div th:replace="layouts/menu-bar :: top-bar"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div role="main" th:fragment="content(value)" th:insert="${value}"></div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer th:replace="layouts/footer :: footer"></footer>
+        <!-- /footer content -->
+
+    </div>
+</div>
+
+</body>
+</html>

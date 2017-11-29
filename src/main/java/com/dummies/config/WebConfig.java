@@ -3,6 +3,7 @@ package com.dummies.config;
 import com.dummies.dao.DummyDAO;
 import com.dummies.dao.DummyDAOImpl;
 import com.dummies.formatter.DateFormatter;
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -12,11 +13,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -43,18 +50,17 @@ public class WebConfig implements ApplicationContextAware, WebMvcConfigurer {
     /*
      * JSP Page initialization
      */
-    /*@Bean
-    public InternalResourceViewResolver resolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+   /* @Bean
+    public ViewResolver viewResolver() {
+        final UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
+//        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/view/");
         viewResolver.setSuffix(".jsp");
+        viewResolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
         return viewResolver;
     }*/
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-    }
+
 
     /*
      * Message externalization/internationalization
@@ -108,6 +114,8 @@ public class WebConfig implements ApplicationContextAware, WebMvcConfigurer {
         // with specific cases when expressions in one template are reused
         // across different data types, so this flag is "false" by default
         // for safer backwards compatibility.
+        engine.addDialect(new LayoutDialect());
+        engine.addDialect(new Java8TimeDialect());
         engine.setEnableSpringELCompiler(true);
         return engine;
     }
@@ -118,6 +126,18 @@ public class WebConfig implements ApplicationContextAware, WebMvcConfigurer {
         resolver.setTemplateEngine(engine());
         resolver.setCharacterEncoding("UTF-8");
         return resolver;
+    }
+
+    /*@Override
+    public Validator getValidator() {
+        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        validator.setValidationMessageSource(messageSource());
+        return validator;
+    }*/
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
     @Bean
