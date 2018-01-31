@@ -6,8 +6,11 @@
 <body>
 <!-- footer content -->
 <footer th:fragment="footer">
-    <div class="pull-right">
+    <div class="pull-left">
         &copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Belongs to Humanity
+    </div>
+    <div class="pull-right">
+        Version: <span th:text="#{app.version}"></span> (<span th:text="#{build.timestamp}"></span>)
     </div>
     <div class="clearfix"></div>
     <!-- jQuery -->

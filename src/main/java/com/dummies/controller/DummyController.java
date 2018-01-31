@@ -24,6 +24,7 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/dummy")
 public class DummyController {
+/*
 
     @Autowired
     private DummyDAO dummyDAO;
@@ -86,5 +87,5 @@ public class DummyController {
         countries.add("USA");
         return countries;
     }
-
+*/
 }
