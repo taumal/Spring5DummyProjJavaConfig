@@ -1,4 +1,4 @@
-CREATE TABLE `dummy` (
+CREATE TABLE `dummy_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
@@ -16,4 +16,4 @@ CREATE TABLE `dummy` (
 --
 -- username: admin || password: 12345678Aa*
 --
-INSERT INTO `user` VALUES (1,NULL,NULL,0,'Admin User','admin@example.com','admin','52663e0d333e88d1c41013a3891b743c201c0229','biuIbnvLrD','Bangladesh','1');
+INSERT INTO `dummy_user` VALUES (1,NULL,NULL,0,'Admin User','admin@example.com','admin','52663e0d333e88d1c41013a3891b743c201c0229','biuIbnvLrD','Bangladesh','1');

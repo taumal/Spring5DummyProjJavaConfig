@@ -1,11 +1,14 @@
 package com.dummies.config;
 
+import com.dummies.filter.AuthFilter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.Nullable;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
+import javax.servlet.FilterRegistration;
+import javax.servlet.ServletContext;
 
 /**
  * @author taumal
@@ -39,6 +42,14 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
         CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
         encodingFilter.setEncoding(CHARACTER_ENCODING);
         encodingFilter.setForceEncoding(true);
+
+        AuthFilter authFilter = new AuthFilter();
+
         return new Filter[] {encodingFilter};
+    }
+
+    @Override
+    protected FilterRegistration.Dynamic registerServletFilter(ServletContext servletContext, Filter filter) {
+        return super.registerServletFilter(servletContext, filter);
     }
 }
