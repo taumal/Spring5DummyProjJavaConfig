@@ -21,7 +21,7 @@ mysql -u root -p
 Now we need to import schema to database.
 
 ```
-mysql -u root -p test_db < project/location/Spring5DummyProjJavaConfig/schema/schema-initial.sql
+mysql -u regUsers -p test_db < project/location/Spring5DummyProjJavaConfig/schema/schema-initial.sql
 ```
 ### Run
 Run with your editor.
