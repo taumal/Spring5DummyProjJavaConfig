@@ -17,6 +17,7 @@ mysql -u root -p
 >
 > CREATE DATABASE test_db;
 ```
+This is an example for your help. Its not mandatory to use it. Create database username and password as your own and keep safe. 
 
 Now we need to import schema to database.
 
